@@ -1,0 +1,40 @@
+#reseaux {
+  display: flex;
+  padding: 8px;
+  gap: 8px;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px 0 0 8px;
+  position: fixed;
+  // right: 0;
+  top: 40%;
+  & i {
+    font-size: 1.2rem;
+  }
+}
+
+#reseaux-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 576px) {
+  #reseaux {
+    display: none;
+  }
+  #reseaux-mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 18px 8px;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
+    position: fixed;
+    // right: 0;
+    bottom: 0;
+    & i {
+      font-size: 2rem;
+    }
+  }
+}
