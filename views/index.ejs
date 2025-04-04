@@ -1,0 +1,41 @@
+<head>
+ <script type="module" src="<%= process.env.SITE_URL %>/assets/js/accueil.js"></script>
+ <link rel="stylesheet" href="<%= process.env.SITE_URL %>/assets/styles/accueil.css" />
+</head>
+<%- include('partials/header') %>
+    <main id="accueil">
+      <section id="hero-header">
+        <h1>La crypto pour les nuls</h1>
+        <div id="content">
+          <p id="p-left">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
+            eum rerum explicabo.
+          </p>
+          <div>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto
+              perspiciatis ut incidunt quasi.
+            </p>
+            <button class="info">EN savoir plus ...</button>
+          </div>
+        </div>
+      </section>
+      <section id="projet">Projet</section>
+      <section id="cryptos"></section>
+      <section id="carrousel">
+        <div id="carrousel-container">
+          <div class="carrousel"></div>
+          <div id="carrousel-controls">
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+          </div>
+        </div>
+        <div id="lightbox">
+          <span class="close">&times;</span>
+          <img class="lightbox-content" id="lightbox-img" src="" alt="" />
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+<%- include('partials/footer') %>
