@@ -1,0 +1,103 @@
+<svg
+  id="scroll-to-top"
+  viewBox="0 0 198 174"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+  <path
+    d="M34.2423 24.3966C42.3547 10.2422 57.3573 1.44359 73.6708 1.27288L121.853 0.768661C138.213 0.59746 153.433 9.12858 161.824 23.1736L193.707 76.5392C195.306 79.2159 196.166 82.2691 196.198 85.387C196.231 88.4707 195.453 91.5088 193.942 94.1974L163.098 149.094C155.038 163.44 139.93 172.387 123.476 172.559L75.6438 173.06C59.2362 173.232 43.9794 164.65 35.6048 150.54L3.34521 96.1854C1.77153 93.5339 0.925815 90.5139 0.893551 87.4308C0.86093 84.3136 1.66099 81.2441 3.21113 78.5395L34.2423 24.3966Z"
+    fill="url(#pattern0_176_43)"
+  />
+  <circle cx="98.5" cy="39.5" r="6.5" fill="white" />
+  <circle cx="98.5" cy="129.5" r="6.5" fill="white" />
+  <circle cx="132.5" cy="75.5" r="6.5" fill="white" />
+  <circle cx="66.5" cy="75.5" r="6.5" fill="white" />
+  <circle cx="98.5" cy="111.5" r="6.5" fill="white" />
+  <circle cx="98.5" cy="93.5" r="6.5" fill="white" />
+  <circle cx="98.5" cy="75.5" r="6.5" fill="white" />
+  <circle cx="79.5" cy="57.5" r="6.5" fill="white" />
+  <circle cx="117.5" cy="57.5" r="6.5" fill="white" />
+  <circle cx="98.5" cy="57.5" r="6.5" fill="white" />
+  <defs>
+    <pattern
+      id="pattern0_176_43"
+      patternContentUnits="objectBoundingBox"
+      width="1"
+      height="1"
+    >
+      <use
+        xlink:href="#image0_176_43"
+        transform="matrix(0.000338246 0 0 0.000384549 -0.19288 -0.285061)"
+      />
+    </pattern>
+  </defs>
+</svg>
+<div id="reseaux">
+  <div
+    onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href) + '&t=' + document.title, '_blank', 'width=600,height=400'); return false;"
+  >
+    <i id="facebook" class="fab fa-facebook-square"></i>
+  </div>
+
+  <div
+    onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(window.location.href) + '&title=' + document.title, '_blank', 'width=600,height=400'); return false;"
+  >
+    <i id="linkedin" class="fab fa-linkedin"></i>
+  </div>
+  <div
+    onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href) + '&text=' + document.title, '_blank', 'width=600,height=400'); return false;"
+  >
+    <i id="x" class="fa-brands fa-square-x-twitter"></i>
+  </div>
+  <!-- <a
+        href="javascript:void(0);"
+        onclick="window.open('https://discordapp.com/channels/@me', '_blank', 'width=600,height=400'); return false;"
+      >
+        <i id="discord" class="fab fa-discord"></i>
+      </a> -->
+  <div
+    onclick="window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(document.title + ' ' + window.location.href), 'targetWindow', 'toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false;"
+  >
+    <i id="whatsapp" class="fab fa-whatsapp"></i>
+  </div>
+</div>
+<div id="reseaux-mobile">
+  <div
+    onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href) + '&t=' + document.title, '_blank', 'width=600,height=400'); return false;"
+  >
+    <i id="facebook" class="fab fa-facebook-square"></i>
+  </div>
+
+  <div
+    onclick="window.open('https://www.messenger.com/share?link=' + encodeURIComponent(window.location.href), 'targetWindow', 'toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false;"
+  >
+    <i id="messenger" class="fab fa-facebook-messenger"></i>
+  </div>
+
+  <div
+    onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(window.location.href) + '&title=' + document.title, '_blank', 'width=600,height=400'); return false;"
+  >
+    <i id="linkedin" class="fab fa-linkedin"></i>
+  </div>
+  <div
+    onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href) + '&text=' + document.title, '_blank', 'width=600,height=400'); return false;"
+  >
+    <i id="x" class="fa-brands fa-square-x-twitter"></i>
+  </div>
+  <div
+    onclick="window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(document.title + ' ' + window.location.href), 'targetWindow', 'toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false;"
+  >
+    <i id="whatsapp" class="fab fa-whatsapp"></i>
+  </div>
+</div>
+<footer>
+  &copy; <span class="year"></span> by
+  <a href="<%= process.env.SITE_URL %>">My Crypto</a>
+  <script>
+    const footer_year = document.querySelectorAll(".year");
+    footer_year.forEach((copyright) => {
+      copyright.textContent = new Date().getFullYear();
+    });
+  </script>
+</footer>
