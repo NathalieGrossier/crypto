@@ -1,3 +1,5 @@
+import { fetchData } from "../lib/functions.js";
+
 console.log("contact.js");
 
 //tous les champs
@@ -99,4 +101,70 @@ messageInput.addEventListener("blur", () => {
     errorMessage,
     "Le message doit comporter au moins 10 caractères."
   );
+});
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  // Validation finale avant envoi
+  const isNameValid = validateField(
+    nameInput,
+    nameRegex,
+    errorName,
+    "Veuillez entrer un nom valide (minimum 2 caractères, lettres et espaces uniquement)."
+  );
+  const isEmailValid = validateField(
+    emailInput,
+    emailRegex,
+    errorEmail,
+    "Veuillez entrer une adresse email valide."
+  );
+  const isSubjectValid = validateLength(
+    subjectInput,
+    3,
+    errorSubject,
+    "Le sujet doit comporter au moins 3 caractères."
+  );
+  const isMessageValid = validateLength(
+    messageInput,
+    10,
+    errorMessage,
+    "Le message doit comporter au moins 10 caractères."
+  );
+  if (!isEmailValid || !isNameValid || !isSubjectValid || !isMessageValid)
+    return;
+
+  const formData = {
+    name: nameInput.value.trim(),
+    email: emailInput.value.trim(),
+    subject: subjectInput.value.trim(),
+    message: messageInput.value.trim(),
+  };
+  console.log("FormData : ", formData);
+
+  // envoie du message :
+  try {
+    const result = await fetchData({
+      route: "/contact",
+      api: "",
+      options: {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      },
+    });
+
+    responseMessage.innerHTML = `<div class="alert success">${result.message}</div>`;
+    console.log(result);
+    console.log(form);
+    form.reset();
+    document
+      .querySelectorAll(".validation-icon")
+      .forEach((icon) => (icon.className = "validation-icon"));
+  } catch (error) {
+    responseMessage.innerHTML = `<div class="alert error">Une erreur est survenue lors de l'envoi du formulaire.</div>`;
+    console.log(error);
+  }
+  console.log("Données :", formData);
 });
