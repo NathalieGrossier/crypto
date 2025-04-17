@@ -31,10 +31,50 @@ function create(loading, tabGames) {
     container.setAttribute("id", "content-games");
     cryptos.appendChild(container);
     tabGames.map((game) => {
+      const divArea = document.createElement("div");
+      (divArea.style.opacity = "0.7"),
+        (divArea.style.transform = "scale(0.8)"),
+        container.appendChild(divArea);
+      const anim = [
+        {
+          opacity: "0.7",
+          transform: "scale(0.8)",
+        },
+        {
+          opacity: "1",
+          transform: "scale(1)",
+        },
+      ];
+
+      const options = {
+        duration: 800,
+        easing: "ease-in-out",
+        fill: "forwards",
+      };
+
+      let lastScrolly = window.scrollY;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          // détection du sens scroll
+          const currentScrollY = window.scrollY;
+          const isScrollingDown = currentScrollY > lastScrolly;
+          lastScrolly = currentScrollY;
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && isScrollingDown) {
+              entry.target.animate(anim, options);
+              // observer.unobserver(entry.target); //observer une seule fois
+            }
+          });
+        },
+        {
+          threshold: 0.5,
+        }
+      );
+
       // for (let i = 0; i < tabGames.length; i += 2) {
       // let pair = tabGames.slice(i, i + 2);
-      const divArea = document.createElement("div");
-      container.appendChild(divArea);
+
       // pair.map((game) => {
       const card = document.createElement("div");
       card.setAttribute("class", "game-card");
@@ -54,6 +94,7 @@ function create(loading, tabGames) {
       headerCard.append(nameGame, dateGame);
       card.append(headerCard, imgGame, avatarGame);
       divArea.append(card);
+      observer.observe(divArea);
       // });
       // console.log(pair);
     });
